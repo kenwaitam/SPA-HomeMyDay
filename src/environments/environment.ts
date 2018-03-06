@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/api/v1/',
+  apiUrl: 'https://localhost:1234/api/v1/',
   homeMyDayUrl: 'http://localhost:49900/'
 };

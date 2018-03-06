@@ -66,6 +66,10 @@
     "class": {
       "spec": false
     },
+    "serve": {
+      "sslKey": "./certs/spaprivate.key",
+      "sslCert": "./certs/spacert.crt"
+    },
     "component": {
       "inlineStyle": true,
       "inlineTemplate": true,

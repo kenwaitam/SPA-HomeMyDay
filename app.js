@@ -1,8 +1,17 @@
 const express = require('express');
 const http = require('http');
+const https = require('https');
 const path = require('path');
 
 const app = express();
+
+const options = {
+  key: fs.readFileSync('./cert/spaprivate.key').toString(),
+  cert: fs.readFileSync('./cert/spacert.crt').toString(),
+  requestCert: false,
+  rejectUnauthorized: false,
+  https: true
+};
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -32,5 +41,5 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || '3001';
 app.set('port', port);
 
-const server = http.createServer(app);
+const server = https.createServer(options, app);
 server.listen(port, () => console.log('Running'));
