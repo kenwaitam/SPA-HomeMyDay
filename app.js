@@ -6,10 +6,9 @@ const path = require('path');
 const app = express();
 
 const options = {
-  key: fs.readFileSync('./cert/spaprivate.key').toString(),
-  cert: fs.readFileSync('./cert/spacert.crt').toString(),
-  requestCert: false,
-  rejectUnauthorized: false,
+  key: fs.readFileSync('./cert/ca/client1-key.pem'),
+  cert: fs.readFileSync('./cert/ca/client1-crt.pem'),
+  ca: fs.readFileSync('./cert/ca/ca-crt.pem'),
   https: true
 };
 

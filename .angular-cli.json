@@ -67,8 +67,8 @@
       "spec": false
     },
     "serve": {
-      "sslKey": "./certs/spaprivate.key",
-      "sslCert": "./certs/spacert.crt"
+      "sslKey": "./cert/ca/client1-key.pem",
+      "sslCert": "./cert/ca/client1-crt.pem"
     },
     "component": {
       "inlineStyle": true,

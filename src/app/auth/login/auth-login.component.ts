@@ -5,6 +5,8 @@ import { AuthService } from '../auth.service';
 import { BaseComponent } from '../../shared/base/basecomponent.class';
 import { LoginModel } from './loginmodel.class';
 import { AlertService } from '../../alert/alert.service';
+// import * as Moment from 'moment';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-auth-login',
@@ -33,8 +35,12 @@ export class AuthLoginComponent extends BaseComponent {
         this.router.navigateByUrl('/');
       }, error => {
         this.loading = false;
-
-        this.alertService.showError('An error has occurred while trying to login.');
+        if (error.status = 429) {
+          this.alertService.showError(error.statusText + ' Please try again in: ' +
+            moment(error.json().error.nextValidRequestDate).fromNow());
+        } else {
+          this.alertService.showError('An error has occurred while trying to login.' + error.statusText);
+        }
       });
   }
 }
