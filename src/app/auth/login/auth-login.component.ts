@@ -35,11 +35,11 @@ export class AuthLoginComponent extends BaseComponent {
         this.router.navigateByUrl('/');
       }, error => {
         this.loading = false;
-        if (error.status = 429) {
-          this.alertService.showError(error.statusText + ' Please try again in: ' +
+        if (error.status === 429 && error.statusText === 'Too Many Requests') {
+          this.alertService.showError(error.statusText + ', please try again ' +
             moment(error.json().error.nextValidRequestDate).fromNow());
         } else {
-          this.alertService.showError('An error has occurred while trying to login.' + error.statusText);
+            this.alertService.showError('An error has occurred while trying to login. ' + error.statusText);
         }
       });
   }

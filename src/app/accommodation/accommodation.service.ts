@@ -5,14 +5,12 @@ import { Headers, RequestOptionsArgs } from '@angular/http';
 import { Accommodation, ApproveStatus } from './accommodation.class';
 import { HttpHelper } from '../shared/helpers/http.helper';
 import { AuthHttp } from 'angular2-jwt';
-import { RSA } from '../shared/jsencrypt/jsencrypt.class';
 import '../shared/operators/to-typescript-object.operator';
 
 @Injectable()
 export class AccommodationService {
 
   constructor(protected authHttp: AuthHttp) {
-    const rsa = new RSA();
   }
 
   /**
@@ -90,8 +88,8 @@ export class AccommodationService {
     };
 
     return this.authHttp.put(`${environment.apiUrl}/accommodations/${accommodationId}/recommendation`, body, HttpHelper.getRequestOptions())
-    .map(r => r.json())
-    .map(r => new Accommodation(r));
+      .map(r => r.json())
+      .map(r => new Accommodation(r));
   }
 
   /**
