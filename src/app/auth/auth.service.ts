@@ -75,10 +75,11 @@ export class AuthService {
       * @param email The email of the user
       * @param password The password
   */
-  public login(email: string, password: string): Observable<boolean> {
+  public login(email: string, password: string, tfatoken: string): Observable<boolean> {
     return this.http.post(`${environment.apiUrl}/authentication/login`, {
       email: email,
-      password: password
+      password: password,
+      token: tfatoken
     })
       .map(response => {
         const responseToken = response.json().token;

@@ -15,6 +15,10 @@
                 <input class="form-control" placeholder="Password" name="password" type="password" [(ngModel)]="loginModel.password" required>
               </div>
               <div class="form-group">
+                  <label for="tfa">Enter Token:</label>
+                  <input type="tfa" class="form-control" id="tfa" [(ngModel)]="tfaToken" name="tfaToken">
+              </div>
+              <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block" [disabled]="!f.valid && loading">Login</button>
               </div>
 

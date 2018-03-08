@@ -7,10 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AccommodationModule } from './accommodation/accommodation.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { TwoFactorModule } from './two-factor/two-factory.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,6 +19,7 @@ import { UserModule } from './user/user.module';
     AuthModule,
     AccommodationModule,
     UserModule,
+    TwoFactorModule,
     HttpModule,
     NavigationModule,
     AppRoutingModule
